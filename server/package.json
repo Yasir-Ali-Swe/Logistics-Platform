@@ -5,13 +5,16 @@
   "main": "dist/server.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch main.ts"
+    "dev": "tsx watch main.ts",
+    "postinstall": "prisma skills sync || exit 0",
+    "contract:emit": "prisma contract emit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^7.10.0",
+    "@prisma/orm-postgres": "^8.0.0-rc.8",
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
@@ -24,6 +27,7 @@
     "zod": "^4.5.4"
   },
   "devDependencies": {
+    "@prisma/cli-engine": "^0.2.3",
     "@types/bcryptjs": "^2.4.6",
     "@types/cookie-parser": "^1.4.10",
     "@types/cors": "^2.8.19",
@@ -31,7 +35,7 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/morgan": "^1.9.10",
     "@types/node": "^26.4.1",
-    "prisma": "^8.0.0-rc.12",
+    "prisma": "^8.0.0-rc.10",
     "tsx": "^4.23.13",
     "typescript": "^5.9.3"
   }
