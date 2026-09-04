@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Eye, EyeOff, Truck, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { toast } from "@/components/ui/toast";
 import {
     Field,
     FieldLabel,
@@ -121,12 +122,13 @@ const AcceptInvitationPage = () => {
 
             console.log("Accept invitation payload:", payload);
             await new Promise((resolve) => setTimeout(resolve, 1200));
-            console.log("Invitation accepted successfully.");
+            toast.add({
+                type: "success",
+                title: "Invitation Accepted",
+                description: "Your account has been activated. You can now log in.",
+            });
             reset();
-
-            setTimeout(() => {
-                router.push("/login");
-            }, 1000);
+            router.push("/login");
         } catch (err) {
             console.error("Accept invitation error:", err);
             setError("Failed to accept invitation. Please try again.");
