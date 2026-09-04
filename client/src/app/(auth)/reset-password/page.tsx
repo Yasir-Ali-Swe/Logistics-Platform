@@ -4,10 +4,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Eye, EyeOff, Truck, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { toast } from "@/components/ui/toast"
 import {
     Field,
     FieldLabel,
@@ -19,6 +20,7 @@ import { resetPasswordSchema } from "@/schemas/auth.schema";
 import type { ResetPasswordFormData } from "@/types/auth";
 
 const ResetPasswordForm = () => {
+    const router = useRouter();
     const searchParams = useSearchParams();
     const token = searchParams.get("token");
 
@@ -62,8 +64,14 @@ const ResetPasswordForm = () => {
 
             console.log("Reset password data:", { token, password: data.password });
             await new Promise((resolve) => setTimeout(resolve, 1500));
-            console.log("Password reset successful.");
+            toast.add({
+                type: "success",
+                title: "Password Reset",
+                description: "Your password has been successfully reset.",
+            })
+
             reset();
+            router.push("/login");
         } catch (err) {
             console.error("Reset password error:", err);
             setError("Failed to reset password. Please try again.");
