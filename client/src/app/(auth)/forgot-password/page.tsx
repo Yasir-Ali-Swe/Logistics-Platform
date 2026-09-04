@@ -3,10 +3,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Link from "next/link";
-import { ArrowLeft, Truck, Loader2 } from "lucide-react";
+import { Truck, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { toast } from "@/components/ui/toast";
+import { useRouter } from "next/navigation";
 import {
     Field,
     FieldLabel,
@@ -18,6 +19,7 @@ import { forgotPasswordSchema } from "@/schemas/auth.schema";
 import type { ForgotPasswordFormData } from "@/types/auth";
 
 const ForgotPasswordForm = () => {
+    const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
 
     const {
@@ -38,6 +40,12 @@ const ForgotPasswordForm = () => {
             // API call removed - replace with your logic
             console.log("Forgot password data:", data);
             reset();
+            toast.add({
+                type: "success",
+                title: "Reset Link Sent",
+                description: "If the email exists, a reset link has been sent.",
+            });
+            router.push("/login");
         } catch (error) {
             console.error("Forgot password error:", error);
         } finally {
