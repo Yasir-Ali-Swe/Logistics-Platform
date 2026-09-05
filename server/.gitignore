@@ -1,15 +1,30 @@
+# ===========================
+# Node.js / Express
+# ===========================
+
 # Dependencies
 node_modules/
-.pnp
-.pnp.js
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
 # Environment variables
 .env
 .env.local
 .env.*.local
-.env.development
-.env.test
-.env.production
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+dist/
+build/
+out/
+*.tsbuildinfo
 
 # Logs
 logs/
@@ -17,49 +32,273 @@ logs/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
 
-# Build output
-dist/
-build/
-out/
-*.tsbuildinfo
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
 
-# Testing
+# Coverage directory used by tools like istanbul
 coverage/
 .nyc_output/
 
-# Editor / IDE
-.vscode/*
-!.vscode/extensions.json
-.idea/
-*.swp
-*.swo
-*~
+# Dependency directories
+node_modules/
+jspm_packages/
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# Package manager
-package-lock.json.bak
-
-# Uploads / temp files (if applicable)
-uploads/
-tmp/
-temp/
-
-# Prisma (if applicable)
-# prisma/migrations/dev.db
-
-# PM2
-.pm2/
-
-# Debug
-.node_repl_history
-
-# Optional npm cache
+# Optional npm cache directory
 .npm
 
 # Optional eslint cache
 .eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# Next.js build output
+.next/
+out/
+
+# Nuxt.js build / generate output
+.nuxt/
+dist/
+
+# Gatsby files
+.cache/
+public/
+
+# ===========================
+# PostgreSQL
+# ===========================
+
+# PostgreSQL data directory
+postgres-data/
+pg-data/
+postgresql-data/
+
+# PostgreSQL log files
+*.log
+postgresql-*.log
+pg_log/
+
+# PostgreSQL backup files
+*.backup
+*.sql
+*.dump
+
+# PostgreSQL configuration files (if overridden locally)
+postgresql.conf
+pg_hba.conf
+pg_ident.conf
+
+# ===========================
+# Docker
+# ===========================
+
+# Docker volumes
+docker-volumes/
+volumes/
+*.volume
+
+# Docker Compose generated files
+docker-compose.override.yml
+docker-compose.*.yml
+
+# Docker build cache
+.dockerignore
+Dockerfile.*.local
+
+# Docker images (if saving locally)
+*.tar
+*.img
+
+# ===========================
+# Prisma (if using)
+# ===========================
+
+# Prisma generated client
+prisma/*.generated.ts
+prisma/generated/
+node_modules/.prisma/
+lib/generated/
+src/generated/
+
+# Prisma migrations (optional - keep if you want version control)
+# prisma/migrations/
+
+# Prisma database file (if using SQLite)
+*.db
+*.db-journal
+
+# ===========================
+# IDE / Editor
+# ===========================
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# IntelliJ IDEA / WebStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+*.un~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+
+# ===========================
+# Operating System Files
+# ===========================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*.tmp
+*.temp
+.directory
+~$*
+
+# ===========================
+# Testing & Debugging
+# ===========================
+
+# Testing
+.nyc_output
+coverage
+*.lcov
+coverage.json
+test-results/
+tests/e2e/videos/
+tests/e2e/screenshots/
+playwright-report/
+jest-report/
+test-report/
+
+# Debug
+*.log
+debug/
+tmp/
+temp/
+
+# ===========================
+# Security / Sensitive Files
+# ===========================
+
+# Private keys
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.jks
+
+# SSH keys
+id_rsa
+id_rsa.pub
+id_ecdsa
+id_ecdsa.pub
+id_ed25519
+id_ed25519.pub
+
+# AWS credentials
+.aws/
+credentials
+config
+
+# GCP credentials
+*.json
+gcloud-credentials.json
+
+# ===========================
+# Project Specific
+# ===========================
+
+# Uploads / User files
+uploads/
+uploads-temp/
+public/uploads/
+assets/uploads/
+static/uploads/
+media/
+
+# Temp files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Session files
+sessions/
+sess-*
+
+# Reports
+reports/
+*.html
+*.pdf
+
+# API Documentation
+apidoc/
+docs/api/
+
+# ===========================
+# Redis (if using)
+# ===========================
+
+redis-data/
+dump.rdb
+appendonly.aof
+
+# ===========================
+# Elasticsearch (if using)
+# ===========================
+
+elasticsearch-data/
+elasticsearch/logs/
